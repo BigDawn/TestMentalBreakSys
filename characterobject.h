@@ -6,13 +6,18 @@
 class CharacterObject
 {
 public:
+    //methods
     CharacterObject(int iniMentalStrength, std::string Name);
     int getMentalLevel();
     std::string getName();
 
 private:
-     int mentalStrength;
-     std::string characterName;
+    //variables
+    int mentalStrength;
+    int armourRating;
+    int health;
+    int damageRating;
+    std::string characterName;
 };
 
 #endif // CHARACTEROBJECT_H
