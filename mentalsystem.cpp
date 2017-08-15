@@ -2,5 +2,5 @@
 
 MentalSystem::MentalSystem()
 {
-
+    cout << "Mental System online" << endl;
 }
