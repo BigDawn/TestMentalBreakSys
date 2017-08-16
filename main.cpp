@@ -14,7 +14,7 @@ CharacterObject npcCreator(int MentalLevel)
 int main(int argc, char *argv[])
 {
     //initialise Mental System
-    MentalSystem fukDerShizUp;
+    MentalSystem phukDerShizUp;
     //set up mental generator
     QCoreApplication a(argc, argv);
     std::default_random_engine generator;
