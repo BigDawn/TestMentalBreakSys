@@ -2,6 +2,8 @@
 #define CHARACTEROBJECT_H
 
 #include <string>
+#include <iostream>
+#include <fstream>
 
 class CharacterObject
 {
@@ -18,6 +20,11 @@ private:
     int health;
     int damageRating;
     std::string characterName;
+    std::string possibleNames[3];
+
+    //methods
+    std::string christenedName();
+    void populateNamesArray();
 };
 
 #endif // CHARACTEROBJECT_H

@@ -30,6 +30,8 @@ int main(int argc, char *argv[])
     std::cout << "2:\nName: "<< Test2.getName() << "\nMental-Strength: " << Test2.getMentalLevel() << "\n" << std::endl;
     std::cout << "3:\nName: "<< Test3.getName() << "\nMental-Strength: " << Test3.getMentalLevel() << "\n" << std::endl;
 
+    //subject them to stuff
+
     return 0; //a.exec();
 }
 
