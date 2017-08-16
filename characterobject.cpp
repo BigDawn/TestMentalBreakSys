@@ -29,25 +29,3 @@ std::string CharacterObject::getName()
 {
     return this->characterName;
 }
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////
-void CharacterObject::populateNamesArray()
-{
-    std::ifstream nameStream;
-    nameStream.open("npcNames.txt", std::ifstream::in);
-    if( !nameStream.is_open() )
-    {
-        std::cout<< "File not opened!" <<std::endl;
-        for( size_t i=0; i<possibleNames.max_size(); i++ )
-        {
-            possibleNames[i] = "Couldn't connect";
-        }
-        return;
-    }
-    else
-    {
-        std::cout<< "File opened!" <<std::endl;
-    }
-
-    //nameStream.
-}

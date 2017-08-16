@@ -1,13 +1,11 @@
-#include <QCoreApplication>
 #include <iostream>
-
 #include <charactercreator.h>
+
 #include "characterobject.h"
 #include "mentalsystem.h"
 
-int main(int argc, char *argv[])
+int main()
 {
-    QCoreApplication a(argc, argv);
     //initialise Mental System and Character Creator
     MentalSystem phukDerShizUp;
     CharacterCreator creator;

@@ -3,7 +3,6 @@
 
 #include <string>
 #include <iostream>
-#include <fstream>
 #include <array>
 
 class CharacterObject
@@ -25,7 +24,6 @@ private:
 
     //methods
     std::string christenedName();
-    void populateNamesArray();
 };
 
 #endif // CHARACTEROBJECT_H
