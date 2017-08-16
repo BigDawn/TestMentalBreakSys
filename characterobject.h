@@ -4,6 +4,7 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <array>
 
 class CharacterObject
 {
@@ -20,7 +21,7 @@ private:
     int health;
     int damageRating;
     std::string characterName;
-    std::string possibleNames[3];
+    std::array<std::string, 3> possibleNames;
 
     //methods
     std::string christenedName();

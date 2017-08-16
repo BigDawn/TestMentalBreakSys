@@ -18,7 +18,7 @@ int CharacterObject::getMentalLevel()
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 std::string CharacterObject::christenedName()
 {
-    std::ifstream nameStream;
+
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -37,8 +37,8 @@ void CharacterObject::populateNamesArray()
     nameStream.open("npcNames.txt", std::ifstream::in);
     if( !nameStream.is_open() )
     {
-        cout << "File not opened!" <<endl;
-        for( int i=0; i<possibleNames.size(); i++ )
+        std::cout<< "File not opened!" <<std::endl;
+        for( size_t i=0; i<possibleNames.max_size(); i++ )
         {
             possibleNames[i] = "Couldn't connect";
         }
@@ -46,6 +46,8 @@ void CharacterObject::populateNamesArray()
     }
     else
     {
-        cout << "File opened!" < <endl;
+        std::cout<< "File opened!" <<std::endl;
     }
+
+    //nameStream.
 }
