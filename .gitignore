@@ -1,5 +1,6 @@
 *.o
 *.a
 *.user.pro
+*.dia
 Makefile
 TestMentalBreakSys

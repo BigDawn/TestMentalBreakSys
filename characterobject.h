@@ -20,10 +20,7 @@ private:
     int health;
     int damageRating;
     std::string characterName;
-    std::array<std::string, 3> possibleNames;
 
-    //methods
-    std::string christenedName();
 };
 
 #endif // CHARACTEROBJECT_H

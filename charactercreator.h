@@ -7,6 +7,10 @@
 #include <fstream>
 #include <iostream>
 
+///
+/// \brief The CharacterCreator class
+/// \details Controls the charater creation, making new characters when createNPC is called
+/// will choose a name and a mental strength level and pass it through to the character object
 class CharacterCreator
 {
 public:
@@ -17,10 +21,10 @@ private:
     //variables
     std::default_random_engine generator;               //used by mentalStrengthGenerator
     std::uniform_int_distribution<int> distribution;    //used by mentalStrengthGenerator
-    std::array<std::string, 3> possibleNames;
+    std::vector<std::string> possibleNames;
     //methods
     int mentalStrengthGenerator();  //uses private variables generator and distribution
-    void populateNamesArray();
+    bool populateNamesArray();
 };
 
 #endif // CHARACTERCREATOR_H

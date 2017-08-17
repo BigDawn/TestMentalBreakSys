@@ -4,6 +4,11 @@
 #include "characterobject.h"
 #include "mentalsystem.h"
 
+///
+/// \brief main
+/// \return 0
+/// \details This is a system I will use to design the Enemy Creation for my game
+/// It will also test systems used on them, hence the name Mental Break Sys
 int main()
 {
     //initialise Mental System and Character Creator
