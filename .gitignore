@@ -4,4 +4,5 @@
 *.dia
 Makefile
 TestMentalBreakSys
-doxs
+html
+latex
