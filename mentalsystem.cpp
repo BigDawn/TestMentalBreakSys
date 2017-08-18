@@ -2,7 +2,7 @@
 
 MentalSystem::MentalSystem()
 {
-    cout << "Mental System online\n" << endl;
+    cout << "Mental System online!" << endl;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
