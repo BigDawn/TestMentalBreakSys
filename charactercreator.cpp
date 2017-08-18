@@ -17,7 +17,7 @@ CharacterCreator::CharacterCreator()
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 /// \brief CharacterCreator::createNPC
 /// \return a newly generated npc
-/// \details creates a new NPC, passing random values into the character
+/// \details Creates a new NPC, passing random values into the character
 CharacterObject CharacterCreator::createNPC()
 {
     CharacterObject newNpc(mentalStrengthGenerator(), "Test");
@@ -36,7 +36,7 @@ int CharacterCreator::mentalStrengthGenerator()
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 /// \brief CharacterCreator::populateNamesArray
-/// \details populates the list of available names, which is a private variable
+/// \details Populates the list of available names, which is a private variable
 bool CharacterCreator::populateNamesArray()
 {
     std::ifstream nameStream;

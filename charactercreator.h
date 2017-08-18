@@ -8,9 +8,10 @@
 #include <iostream>
 
 ///
-/// \brief The CharacterCreator class
-/// \details Controls the charater creation, making new characters when createNPC is called
-/// will choose a name and a mental strength level and pass it through to the character object
+/// \class CharacterCreator
+/// \brief Character Creation controller
+/// \details Controls the charater creation, making new characters when createNPC() is called.
+/// It will pass generated parameters through to the character object it makes.
 class CharacterCreator
 {
 public:

@@ -8,8 +8,8 @@ CharacterObject::CharacterObject(int iniMentalStrength, std::string Name)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 /// \brief CharacterObject::getMentalLevel
-/// \return mental level of specified character
-/// \details returns the randomnly generated mental level of an NPC
+/// \return Mental level of specified character
+/// \details Returns the randomnly generated mental level of an NPC
 int CharacterObject::getMentalLevel()
 {
     return this->mentalStrength;
@@ -17,8 +17,8 @@ int CharacterObject::getMentalLevel()
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 /// \brief CharacterObject::getName
-/// \return name of the Character
-/// \details returns the randomnly given character name of an NPC
+/// \return Name of the Character
+/// \details Returns the randomnly given character name of an NPC
 std::string CharacterObject::getName()
 {
     return this->characterName;

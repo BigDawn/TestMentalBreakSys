@@ -7,6 +7,11 @@ using namespace std;
 
 #include "characterobject.h"
 
+///
+/// \class MentalSystem
+/// \brief Testing Systems related to Mental Strength
+/// \details Models the system that will evaluate a character's mental strength to react to various situations
+///
 class MentalSystem
 {
 public:
