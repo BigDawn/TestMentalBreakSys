@@ -1,8 +1,9 @@
 #include <iostream>
-#include <charactercreator.h>
 
+#include "charactercreator.h"
 #include "characterobject.h"
 #include "mentalsystem.h"
+#include "testsubjector.h"
 
 ///
 /// \brief main
@@ -12,8 +13,10 @@
 int main()
 {
     //initialise Mental System and Character Creator
-    MentalSystem phukDerShizUp;
     CharacterCreator creator;
+    MentalSystem mentalSys;
+    testSubjector evil;
+    std::cout<< "\n" <<std::endl;
 
     //make three npc's
     CharacterObject Test1 = creator.createNPC();
@@ -24,7 +27,20 @@ int main()
     std::cout << "3:\nName: "<< Test3.getName() << "\nMental-Strength: " << Test3.getMentalLevel() << "\n" << std::endl;
 
     //subject them to stuff
+    evil.bullet(&Test2);
+    std::cout<< Test2.health <<std::endl;
 
+    if(Test2.health<0)
+    {
+        std::cout<< Test2.getName() << " died!" <<std::endl;
+        mentalSys.friendlyDied(Test2,Test1);
+    }
+
+//    int i = 0;
+//    while( i<3 )
+//    {
+//        cout <<
+//    }
     return 0; //a.exec();
 }
 

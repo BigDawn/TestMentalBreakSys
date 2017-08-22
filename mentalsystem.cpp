@@ -2,7 +2,7 @@
 
 MentalSystem::MentalSystem()
 {
-    cout << "Mental System online!" << endl;
+    std::cout << "Mental System online!" << std::endl;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -10,9 +10,9 @@ MentalSystem::MentalSystem()
 /// \param npc
 /// \return
 /// \details
-string MentalSystem::friendlyDied(CharacterObject npc)
+void MentalSystem::friendlyDied(CharacterObject npcDead, CharacterObject npcAffected)
 {
-
+    std::cout<< npcAffected.getName() << " runs over to " << npcDead.getName() << " and tries desperately to revive them" <<std::endl;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -20,7 +20,7 @@ string MentalSystem::friendlyDied(CharacterObject npc)
 /// \param npc
 /// \return
 /// \details
-string MentalSystem::killEnemy(CharacterObject npc)
+std::string MentalSystem::killEnemy(CharacterObject npc)
 {
 
 }

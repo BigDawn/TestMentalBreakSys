@@ -1,6 +1,5 @@
 #ifndef MENTALSYSTEM_H
 #define MENTALSYSTEM_H
-using namespace std;
 
 #include <string>
 #include <iostream>
@@ -16,8 +15,8 @@ class MentalSystem
 {
 public:
     MentalSystem();
-    string killEnemy(CharacterObject npc);
-    string friendlyDied(CharacterObject npc);
+    std::string killEnemy(CharacterObject npc);
+    void friendlyDied(CharacterObject npcDead, CharacterObject npcAffected);
 };
 
 #endif // MENTALSYSTEM_H

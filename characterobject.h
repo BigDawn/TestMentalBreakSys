@@ -16,13 +16,13 @@ public:
     //methods
     CharacterObject(int iniMentalStrength, std::string Name);
     int getMentalLevel();
+    int health;
     std::string getName();
 
 private:
     //variables
     int mentalStrength;
     int armourRating;
-    int health;
     int damageRating;
     std::string characterName;
 

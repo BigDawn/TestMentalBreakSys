@@ -11,7 +11,7 @@ CharacterCreator::CharacterCreator()
         return;
     }
 
-    std::cout<< "NPC Creator online!\n\n";
+    std::cout<< "NPC Creator online!";
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////

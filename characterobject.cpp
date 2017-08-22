@@ -4,6 +4,7 @@ CharacterObject::CharacterObject(int iniMentalStrength, std::string Name)
 {
     this->mentalStrength = iniMentalStrength;
     this->characterName = Name;
+    this->health = 100;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
