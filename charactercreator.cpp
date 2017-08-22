@@ -45,8 +45,12 @@ bool CharacterCreator::populateNamesArray()
     //initialise and open first and second input streams
     std::ifstream firstNameStream;
     std::ifstream secondNameStream;
-    firstNameStream.open("./Names/firstNames.txt", std::ifstream::in);
-    secondNameStream.open("./Names/secondNames.txt", std::ifstream::in);
+    //SUSE
+    firstNameStream.open("/home/dev/NetBeansProjects/TestMentalBreakSys/Names/firstNames.txt", std::ifstream::in);
+    secondNameStream.open("/home/dev/NetBeansProjects/TestMentalBreakSys/Names/secondNames.txt", std::ifstream::in);
+    //ARCH
+//    firstNameStream.open("./Names/firstNames.txt", std::ifstream::in);
+//    secondNameStream.open("./Names/secondNames.txt", std::ifstream::in);
 
     //check if streams opened
     if( !firstNameStream.is_open() )
