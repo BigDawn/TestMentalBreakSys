@@ -5,6 +5,13 @@
 #include <iostream>
 #include <array>
 
+enum EnemyType
+{
+    Feminista,
+    SJW,
+    Apologist
+};
+
 ///
 /// \class CharacterObject
 /// \brief Model class for an NPC
@@ -13,14 +20,18 @@
 class CharacterObject
 {
 public:
+    //variables
+
     //methods
     CharacterObject(int iniMentalStrength, std::string Name);
+    EnemyType getTypeOfEnemy();
     int getMentalLevel();
     int health;
     std::string getName();
 
 private:
     //variables
+    EnemyType typeOfEnemy;
     int mentalStrength;
     int armourRating;
     int damageRating;

@@ -12,7 +12,14 @@ MentalSystem::MentalSystem()
 /// \details
 void MentalSystem::friendlyDied(CharacterObject npcDead, CharacterObject npcAffected)
 {
-    std::cout<< npcAffected.getName() << " runs over to " << npcDead.getName() << " and tries desperately to revive them" <<std::endl;
+    if(npcDead.getTypeOfEnemy() == EnemyType::Feminista)
+    {
+        std::cout<< npcAffected.getName() << " runs over to " << npcDead.getName() << " and tries desperately to revive her" <<std::endl;
+    }
+    else
+    {
+        std::cout<< npcAffected.getName() << " runs over to " << npcDead.getName() << " and tries desperately to revive them" <<std::endl;
+    }
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
