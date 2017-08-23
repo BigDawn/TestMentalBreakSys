@@ -31,7 +31,7 @@ public:
 
 private:
     CharacterObject* getNearestEnemy();
-    std::string killEnemy(CharacterObject npc);
+    void killEnemy(CharacterObject npc);
     void deadFriendly(CharacterObject npcDead);
 
     //variables

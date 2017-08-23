@@ -30,11 +30,6 @@ int main()
     //subject them to stuff
     evil.bullet(&Test2);
 
-//    int i = 0;
-//    while( i<3 )
-//    {
-//        cout <<
-//    }
     return 0; //a.exec();
 }
 

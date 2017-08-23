@@ -49,6 +49,7 @@ void MentalSystem::deadFriendly(CharacterObject npcDead)
     if(npcDead.getTypeOfEnemy() == EnemyType::Feminista)
     {
         std::cout<< npcAffected->getName() << " runs over to " << npcDead.getName() << " and tries desperately to revive her" <<std::endl;
+
     }
     else
     {
@@ -70,8 +71,8 @@ void MentalSystem::setRefreshNpcList(std::vector<CharacterObject *> mainNpcList)
 /// \param npc
 /// \return
 /// \details
-std::string MentalSystem::killEnemy(CharacterObject npc)
+void MentalSystem::killEnemy(CharacterObject npc)
 {
-
+    std::cout<< npc.getName() << " snarks: \"Hehe, got heem!\" " << std::endl;
 }
 
