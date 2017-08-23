@@ -2,7 +2,7 @@
 #define CHARACTERCREATOR_H
 
 #include <random>
-#include <characterobject.h>
+#include <characterenemy.h>
 #include <chrono>
 #include <fstream>
 #include <iostream>
@@ -16,7 +16,7 @@ class CharacterCreator
 {
 public:
     CharacterCreator();
-    CharacterObject createNPC();
+    CharacterEnemy createEnemyNPC(EnemyType type);
 
 private:
     //variables
@@ -27,7 +27,7 @@ private:
     //methods
     bool populateNamesArray();
     int mentalStrengthGenerator();  //uses private variables generator and distribution
-    std::string chooseRandomName(bool surname);
+    std::string chooseRandomName(std::vector<std::string> *nameVectorNeeded);
 
 };
 

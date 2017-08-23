@@ -5,7 +5,7 @@
 #include <iostream>
 #include <vector>
 
-#include "characterobject.h"
+#include "characterenemy.h"
 
 ///
 /// \class MentalSystem
@@ -26,7 +26,7 @@ public:
     //methods
     MentalSystem();
     void sortReactionFromAction(CharacterObject npcActedUpon, TypeOfAction typeActEnum);
-    void setRefreshNpcList( std::vector<CharacterObject*> mainNpcList );
+    void setRefreshNpcList( std::vector<CharacterEnemy*> mainEnemyNpcList );
 
 
 private:
@@ -35,7 +35,7 @@ private:
     void deadFriendly(CharacterObject npcDead);
 
     //variables
-    std::vector<CharacterObject*> vMentalNPCs;
+    std::vector<CharacterEnemy*> vMentalEnemyNPCs;
 };
 
 #endif // MENTALSYSTEM_H

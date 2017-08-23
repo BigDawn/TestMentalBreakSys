@@ -36,15 +36,15 @@ void testSubjector::bullet(CharacterObject *character)
 /// \details Performs the damage calculations for a bullet hitting a character
 void testSubjector::damageCalculationBullet(CharacterObject *character)
 {
-    int inDam = 0;
+    int inDam = 10;
     std::cout<< "Damage input: " <<std::endl;
-    std::cin >> inDam;
+    //std::cin >> inDam;
     character->health -= inDam;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 void testSubjector::mentalSystemAction(CharacterObject character, MentalSystem::TypeOfAction typeAct)
 {
-    mentalSys.setRefreshNpcList( this->vNPCs );
+    mentalSys.setRefreshNpcList( this->vEnemyNPCs );
     mentalSys.sortReactionFromAction(character, typeAct);
 }

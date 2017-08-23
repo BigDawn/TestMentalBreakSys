@@ -1,7 +1,7 @@
 #ifndef TESTSUBJECTOR_H
 #define TESTSUBJECTOR_H
 
-#include <characterobject.h>
+#include <characterenemy.h>
 #include <iostream>
 #include <string>
 #include <vector>
@@ -20,7 +20,7 @@ public:
     void bullet(CharacterObject *character);
 
     //variables
-    std::vector<CharacterObject*> vNPCs;
+    std::vector<CharacterEnemy*> vEnemyNPCs;
 
 private:
     void damageCalculationBullet(CharacterObject *character);

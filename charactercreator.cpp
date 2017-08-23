@@ -18,10 +18,10 @@ CharacterCreator::CharacterCreator()
 /// \brief CharacterCreator::createNPC
 /// \return a newly generated npc
 /// \details Creates a new NPC, passing random values into the character
-CharacterObject CharacterCreator::createNPC()
+CharacterEnemy CharacterCreator::createEnemyNPC(EnemyType type)
 {
-    std::string nameOfNPC = chooseRandomName(false) + " " + chooseRandomName(true);
-    CharacterObject newNpc(mentalStrengthGenerator(), nameOfNPC);
+    std::string nameOfNPC = chooseRandomName(&possibleFirstNames) + " " + chooseRandomName(&possibleSurnames);
+    CharacterEnemy newNpc(mentalStrengthGenerator(), nameOfNPC, type);
     return newNpc;
 }
 
@@ -101,18 +101,10 @@ bool CharacterCreator::populateNamesArray()
 /// \brief CharacterCreator::chooseRandomFirstName
 /// \return NPC first name
 /// \details chooses a random name from the First name vector and returns it
-std::string CharacterCreator::chooseRandomName(bool surname)
+std::string CharacterCreator::chooseRandomName(std::vector<std::string> *nameVectorNeeded)
 {
-    std::vector<std::string> namesVector;
+    std::vector<std::string> namesVector = *nameVectorNeeded;
 
-    if(surname)
-    {
-        namesVector = possibleSurnames;
-    }
-    else
-    {
-        namesVector = possibleFirstNames;
-    }
     //set range using vector size
     distribution = std::uniform_int_distribution<int> (1,namesVector.size());
 

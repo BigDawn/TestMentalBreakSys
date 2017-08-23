@@ -22,7 +22,7 @@ void MentalSystem::sortReactionFromAction(CharacterObject npcActedUpon, MentalSy
         deadFriendly(npcActedUpon);
         break;
     case injuredByBullet:
-            std::cout<< npcActedUpon.getName() << " says \"Ouch\"!" <<std::endl;
+        std::cout<< npcActedUpon.getName() << " says \"Ouch\"!" <<std::endl;
         break;
     default:
         break;
@@ -35,18 +35,17 @@ void MentalSystem::sortReactionFromAction(CharacterObject npcActedUpon, MentalSy
 /// \details gets the nearest enemy
 CharacterObject* MentalSystem::getNearestEnemy()
 {
-    return vMentalNPCs[0];
+    return vMentalEnemyNPCs[0];
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// \brief MentalSystem::friendlyDied
 /// \param npc
-/// \return
-/// \details
+/// \details npc reacts to a dead friendly npc
 void MentalSystem::deadFriendly(CharacterObject npcDead)
 {
     CharacterObject* npcAffected = getNearestEnemy();
-    if(npcDead.getTypeOfEnemy() == EnemyType::Feminista)
+    if(npcDead.isDead)//.getTypeOfEnemy() == EnemyType::Feminista)
     {
         std::cout<< npcAffected->getName() << " runs over to " << npcDead.getName() << " and tries desperately to revive her" <<std::endl;
 
@@ -60,10 +59,10 @@ void MentalSystem::deadFriendly(CharacterObject npcDead)
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /// \brief MentalSystem::setRefreshNpcList
 /// \details Syncs the mental System NPC list with the main one
-void MentalSystem::setRefreshNpcList(std::vector<CharacterObject *> mainNpcList)
+void MentalSystem::setRefreshNpcList(std::vector<CharacterEnemy*> mainEnemyNpcList)
 {
-    this->vMentalNPCs.clear();
-    this->vMentalNPCs = mainNpcList;
+    this->vMentalEnemyNPCs.clear();
+    this->vMentalEnemyNPCs = mainEnemyNpcList;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////

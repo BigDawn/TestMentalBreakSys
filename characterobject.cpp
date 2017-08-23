@@ -5,17 +5,7 @@ CharacterObject::CharacterObject(int iniMentalStrength, std::string Name)
     this->isDead = false;
     this->mentalStrength = iniMentalStrength;
     this->characterName = Name;
-    this->typeOfEnemy = EnemyType::Feminista;
     this->health = 100;
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////
-/// \brief CharacterObject::getTypeOfEnemy
-/// \return Type of enemy
-/// \details There are a few classes of enemies, this is the class of current one
-EnemyType CharacterObject::getTypeOfEnemy()
-{
-    return this->typeOfEnemy;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
