@@ -3,7 +3,6 @@
 
 #include <string>
 #include <iostream>
-#include <array>
 
 enum EnemyType
 {
@@ -21,7 +20,7 @@ class CharacterObject
 {
 public:
     //variables
-
+    bool isDead;
     //methods
     CharacterObject(int iniMentalStrength, std::string Name);
     EnemyType getTypeOfEnemy();

@@ -3,6 +3,7 @@
 
 #include <string>
 #include <iostream>
+#include <vector>
 
 #include "characterobject.h"
 
@@ -14,9 +15,27 @@
 class MentalSystem
 {
 public:
+    //variabes
+    enum TypeOfAction
+    {
+        enemyKilled,
+        friendlyDied,
+        injuredByBullet,
+    };
+
+    //methods
     MentalSystem();
+    void sortReactionFromAction(CharacterObject npcActedUpon, TypeOfAction typeActEnum);
+    void setRefreshNpcList( std::vector<CharacterObject*> mainNpcList );
+
+
+private:
+    CharacterObject* getNearestEnemy();
     std::string killEnemy(CharacterObject npc);
-    void friendlyDied(CharacterObject npcDead, CharacterObject npcAffected);
+    void deadFriendly(CharacterObject npcDead);
+
+    //variables
+    std::vector<CharacterObject*> vMentalNPCs;
 };
 
 #endif // MENTALSYSTEM_H

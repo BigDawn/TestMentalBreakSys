@@ -4,6 +4,9 @@
 #include <characterobject.h>
 #include <iostream>
 #include <string>
+#include <vector>
+
+#include "mentalsystem.h"
 
 ///
 /// \class testSubjector
@@ -14,7 +17,17 @@ class testSubjector
 {
 public:
     testSubjector();
-    void bullet(/*int damage,*/ CharacterObject *character);
+    void bullet(CharacterObject *character);
+
+    //variables
+    std::vector<CharacterObject*> vNPCs;
+
+private:
+    void damageCalculationBullet(CharacterObject *character);
+    void mentalSystemAction(CharacterObject character, MentalSystem::TypeOfAction typeAct);
+
+    //variables
+    MentalSystem mentalSys;
 };
 
 #endif // TESTSUBJECTOR_H

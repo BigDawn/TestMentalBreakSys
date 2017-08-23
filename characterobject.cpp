@@ -2,6 +2,7 @@
 
 CharacterObject::CharacterObject(int iniMentalStrength, std::string Name)
 {
+    this->isDead = false;
     this->mentalStrength = iniMentalStrength;
     this->characterName = Name;
     this->typeOfEnemy = EnemyType::Feminista;
