@@ -1,7 +1,7 @@
 #include <iostream>
 
 #include "charactercreator.h"
-#include "testsubjector.h"
+#include "testsubjectorTemplate.h"
 
 ///
 /// \brief main
@@ -12,7 +12,7 @@ int main()
 {
     //initialise Mental System and Character Creator
     CharacterCreator creator;
-    testSubjector evil;
+    testSubjector<CharacterEnemy> evil;
     std::cout<< "\n" <<std::endl;
 
     //make three npc's

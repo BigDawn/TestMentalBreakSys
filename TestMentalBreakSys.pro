@@ -14,7 +14,6 @@ SOURCES += main.cpp \
     mentalsystem.cpp \
     characterobject.cpp \
     charactercreator.cpp \
-    testsubjector.cpp \
     characterenemy.cpp
 
 # The following define makes your compiler emit warnings if you use
@@ -32,5 +31,5 @@ HEADERS += \
     mentalsystem.h \
     characterobject.h \
     charactercreator.h \
-    testsubjector.h \
-    characterenemy.h
+    characterenemy.h \
+    testsubjectorTemplate.h
