@@ -18,6 +18,9 @@ private:
     CharacterEnemy* getNearestAlly();
     void killEnemy(CharacterEnemy npc);
     void deadFriendly(CharacterEnemy npcDead);
+    void deadFriendlySeenByRadical(CharacterEnemy dead, CharacterEnemy affected);
+    void deadFriendlySeenBySJW(CharacterEnemy dead, CharacterEnemy affected);
+    void deadFriendlySeenByApologist(CharacterEnemy dead, CharacterEnemy affected);
 
     //variables
     std::vector<CharacterEnemy*> vMentalEnemyNPCs;

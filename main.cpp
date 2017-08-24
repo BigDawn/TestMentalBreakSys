@@ -27,7 +27,7 @@ int main()
     std::cout << "3:\nName: "<< Test3.getName() << "\nEnemy Type: " << Test3.getTypeOfEnemy() << "\nMental-Strength: " << Test3.getMentalLevel() << "\n" << std::endl;
 
     //subject them to stuff
-    evil.bullet(&Test3);
+    evil.bullet(&Test1);
 
     return 0; //a.exec();
 }
