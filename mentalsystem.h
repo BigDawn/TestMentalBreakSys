@@ -6,6 +6,8 @@
 #include <vector>
 
 #include "characterenemy.h"
+#include "globalenums.h"
+#include "mentalsystemenemy.h"
 
 ///
 /// \class MentalSystem
@@ -16,26 +18,17 @@ class MentalSystem
 {
 public:
     //variabes
-    enum TypeOfAction
-    {
-        enemyKilled,
-        friendlyDied,
-        injuredByBullet,
-    };
 
     //methods
     MentalSystem();
-    void sortReactionFromAction(CharacterObject npcActedUpon, TypeOfAction typeActEnum);
-    void setRefreshNpcList( std::vector<CharacterEnemy*> mainEnemyNpcList );
-
+    void controllerMental(CharacterEnemy npcActedUpon, TypeOfAction typeActEnum, std::vector<CharacterEnemy*> listChars);
+    //void controllerMental(CharacterFriendly npcActedUpon, TypeOfAction typeActEnum);
 
 private:
-    CharacterObject* getNearestEnemy();
-    void killEnemy(CharacterObject npc);
-    void deadFriendly(CharacterObject npcDead);
 
     //variables
-    std::vector<CharacterEnemy*> vMentalEnemyNPCs;
+    MentalSystemEnemy mentalEnemy;
+
 };
 
 #endif // MENTALSYSTEM_H

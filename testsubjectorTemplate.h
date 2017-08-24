@@ -6,6 +6,7 @@
 #include <string>
 #include <vector>
 
+#include "globalenums.h"
 #include "mentalsystem.h"
 
 ///
@@ -22,7 +23,7 @@ public:
   void bullet(tNpc *character);
 
   //variables
-  std::vector<tNpc*> vEnemyNPCs;
+  std::vector<tNpc*> vListNPCs;
 
 private:
   //variables
@@ -30,7 +31,7 @@ private:
 
   //methods
   void damageCalculationBullet(tNpc *character);
-  void mentalSystemAction(tNpc character, MentalSystem::TypeOfAction typeAct);
+  void mentalSystemAction(tNpc character, TypeOfAction typeAct);
 };
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -47,11 +48,11 @@ template <class tNpc> void testSubjector<tNpc>::bullet(tNpc *character)
     {
         character->isDead = true;
         std::cout<< character->getName() << " died!" <<std::endl;
-        mentalSystemAction(*character, MentalSystem::friendlyDied);
+        mentalSystemAction(*character, friendlyDied);
     }
     else
     {
-        mentalSystemAction(*character, MentalSystem::injuredByBullet);
+        mentalSystemAction(*character, injuredByBullet);
     }
 }
 
@@ -74,10 +75,9 @@ template <class tNpc> void testSubjector<tNpc>::damageCalculationBullet(tNpc *ch
 /// \param Character to be subjected
 /// \param Type of action subjected upon character
 /// \details May move to main, mentalSystem will be called by game eventually
-template <class tNpc> void testSubjector<tNpc>::mentalSystemAction(tNpc character, MentalSystem::TypeOfAction typeAct)
+template <class tNpc> void testSubjector<tNpc>::mentalSystemAction(tNpc character, TypeOfAction typeAct)
 {
-    mentalSys.setRefreshNpcList( this->vEnemyNPCs );
-    mentalSys.sortReactionFromAction(character, typeAct);
+    mentalSys.controllerMental(character, typeAct, this->vListNPCs);
 }
 
 
