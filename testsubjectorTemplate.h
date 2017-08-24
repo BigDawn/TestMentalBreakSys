@@ -10,7 +10,8 @@
 
 ///
 /// \class testSubjector
-/// \brief The testSubjector class for subjecting NPCs
+/// \brief The testSubjector template class for subjecting NPCs
+/// \tparam Type of NPC to be subjected
 /// \details class main uses to test different conditions against the mental system of the NPCs.
 /// Will not be in the main program.
 template <class tNpc> class testSubjector
@@ -34,6 +35,7 @@ private:
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 /// \brief testSubjector::bullet
+/// \tparam Type of NPC to be subjected
 /// \param character
 /// \details Simulates a bullet hitting an enemy
 template <class tNpc> void testSubjector<tNpc>::bullet(tNpc *character)
@@ -55,6 +57,7 @@ template <class tNpc> void testSubjector<tNpc>::bullet(tNpc *character)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 /// \brief testSubjector::damageCalculationBullet
+/// \tparam Type of NPC to be subjected
 /// \param character
 /// \details Performs the damage calculations for a bullet hitting a character
 template <class tNpc> void testSubjector<tNpc>::damageCalculationBullet(tNpc *character)
@@ -66,6 +69,11 @@ template <class tNpc> void testSubjector<tNpc>::damageCalculationBullet(tNpc *ch
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+/// \brief Mental System call
+/// \tparam Type of NPC to be subjected
+/// \param Character to be subjected
+/// \param Type of action subjected upon character
+/// \details May move to main, mentalSystem will be called by game eventually
 template <class tNpc> void testSubjector<tNpc>::mentalSystemAction(tNpc character, MentalSystem::TypeOfAction typeAct)
 {
     mentalSys.setRefreshNpcList( this->vEnemyNPCs );
