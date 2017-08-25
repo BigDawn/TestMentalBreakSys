@@ -42,9 +42,9 @@ private:
 template <class tNpc> void testSubjector<tNpc>::bullet(tNpc *character)
 {
     damageCalculationBullet(character);
-    std::cout<< "Enemy Health: " << character->health <<std::endl;
+    std::cout<< "Enemy Health: " << character->currentHealth <<std::endl;
 
-    if(character->health<0)
+    if(character->currentHealth<0)
     {
         character->isDead = true;
         std::cout<< character->getName() << " died!" <<std::endl;
@@ -66,7 +66,7 @@ template <class tNpc> void testSubjector<tNpc>::damageCalculationBullet(tNpc *ch
     int inDam = 102;
     std::cout<< "Damage input: " <<std::endl;
     //std::cin >> inDam;
-    character->health -= inDam;
+    character->currentHealth -= inDam;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

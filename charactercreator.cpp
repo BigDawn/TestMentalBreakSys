@@ -22,6 +22,48 @@ CharacterEnemy CharacterCreator::createEnemyNPC(EnemyType type)
 {
     std::string nameOfNPC = chooseRandomName(&possibleFirstNames) + " " + chooseRandomName(&possibleSurnames);
     CharacterEnemy newNpc(mentalStrengthGenerator(), nameOfNPC, type);
+
+    //Gender
+    switch (newNpc.getTypeOfEnemy())
+    {
+    case Apologist:
+        newNpc.assignGender(Female);
+        break;
+
+    case Radical:
+        newNpc.assignGender(Female);
+        break;
+
+    case SJW:
+        newNpc.assignGender(Male);
+        break;
+
+    default:
+        newNpc.assignGender(IsASocialConstruct);
+        break;
+    }
+
+    //Breast Size
+    switch(newNpc.getGender())
+    {
+    case Male:
+        newNpc.setBreastSize( man );
+        break;
+
+    case Female:
+        newNpc.setBreastSize( DD );
+        break;
+
+    case IsASocialConstruct:
+        newNpc.setBreastSize(AA);
+        break;
+
+    default:
+        newNpc.setBreastSize(C);
+        break;
+    }
+
+    initialEquipment(&newNpc);
     return newNpc;
 }
 

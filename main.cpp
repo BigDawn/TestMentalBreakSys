@@ -3,6 +3,107 @@
 #include "charactercreator.h"
 #include "testsubjectorTemplate.h"
 
+std::string translateGender( Gender g )
+{
+    std::string s;
+    switch(g)
+    {
+    case Male:
+        s = "Male";
+        break;
+    case Female:
+        s = "Female";
+        break;
+    case IsASocialConstruct:
+        s = "Fluid";
+        break;
+    default:
+        s = "Error";
+        break;
+    }
+
+    return s;
+}
+
+std::string translateBreastSize( BreastSize b )
+{
+    std::string s;
+
+    switch(b)
+    {
+    case man:
+        s = "man";
+        break;
+
+    case AA:
+        s = "AA";
+
+        break;
+
+    case A:
+        s = "A";
+        break;
+
+    case B:
+        s = "B";
+        break;
+
+    case C:
+        s = "C";
+        break;
+
+    case D:
+        s = "D";
+        break;
+
+    case DD:
+        s = "DD";
+        break;
+
+    case E:
+        s = "E";
+        break;
+
+    case EE:
+        s = "EE";
+        break;
+
+    }
+    return s;
+}
+
+std::string translateEnemy( EnemyType e )
+{
+    std::string s;
+
+    switch(e)
+    {
+    case Apologist:
+        s = "Apologist";
+        break;
+
+    case Radical:
+        s = "Radical";
+        break;
+
+    case SJW:
+        s = "SJW";
+        break;
+    }
+
+    return s;
+}
+
+void displayEnemy(CharacterEnemy *chara)
+{
+    std::cout << "\nName: "<< chara->getName()
+              << "\nGender: " << translateGender(chara->getGender())
+              << "\nEnemy Type: " << translateEnemy( chara->getTypeOfEnemy() )
+              << "\nMental-Strength: " << chara->getMentalLevel()
+              << "\nBreast Size: " << translateBreastSize( chara->getBreastSize() )
+              << "\n" <<std::endl;
+}
+
 ///
 /// \brief main
 /// \return 0
@@ -22,9 +123,12 @@ int main()
     evil.vListNPCs.push_back(&Test1);
     evil.vListNPCs.push_back(&Test2);
     evil.vListNPCs.push_back(&Test3);
-    std::cout << "1:\nName: "<< Test1.getName() << "\nEnemy Type: " << Test1.getTypeOfEnemy() << "\nMental-Strength: " << Test1.getMentalLevel() << "\n" << std::endl;
-    std::cout << "2:\nName: "<< Test2.getName() << "\nEnemy Type: " << Test2.getTypeOfEnemy() << "\nMental-Strength: " << Test2.getMentalLevel() << "\n" << std::endl;
-    std::cout << "3:\nName: "<< Test3.getName() << "\nEnemy Type: " << Test3.getTypeOfEnemy() << "\nMental-Strength: " << Test3.getMentalLevel() << "\n" << std::endl;
+    std::cout << "1:";
+    displayEnemy(&Test1);
+    std::cout << "2:";
+    displayEnemy(&Test2);
+    std::cout << "3:";
+    displayEnemy(&Test3);
 
     //subject them to stuff
     evil.bullet(&Test1);

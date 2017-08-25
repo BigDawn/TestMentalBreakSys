@@ -28,6 +28,16 @@ private:
     bool populateNamesArray();
     int mentalStrengthGenerator();  //uses private variables generator and distribution
     std::string chooseRandomName(std::vector<std::string> *nameVectorNeeded);
+    template <class tNpc> void initialEquipment(tNpc *character)    //equip character
+    {
+        character->equipItem(Headgear,"Beanie");
+        character->equipItem(Eyewear,"Osiris Spectacles");
+        character->equipItem(NeckAccessory,"Amulet of Reeeeee");
+        character->equipItem(Top,"Nothing");
+        character->equipItem(Bottoms,"Mens Jeans - Size L");
+        character->equipItem(Footwear,"Plimsoles");
+        character->equipItem(Weapon,"AK-47");
+    }
 
 };
 

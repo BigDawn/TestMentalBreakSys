@@ -21,6 +21,7 @@ public:
 
 private:
     EnemyType typeOfEnemy;
+    int zeal;
 };
 
 #endif // CHARACTERENEMY_H
