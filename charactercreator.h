@@ -16,6 +16,7 @@ class CharacterCreator
 {
 public:
     CharacterCreator();
+    ~CharacterCreator();
     CharacterEnemy createEnemyNPC(EnemyType type);
 
 private:

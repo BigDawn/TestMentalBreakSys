@@ -14,6 +14,11 @@ CharacterCreator::CharacterCreator()
     std::cout<< "NPC Creator online!" <<std::endl;
 }
 
+CharacterCreator::~CharacterCreator()
+{
+    std::cout<< "NPC Creator offline!" <<std::endl;
+}
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 /// \brief CharacterCreator::createNPC
 /// \return a newly generated npc

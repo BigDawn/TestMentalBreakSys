@@ -3,6 +3,16 @@
 #include "charactercreator.h"
 #include "testsubjectorTemplate.h"
 
+std::vector<CharacterEnemy*> vEnemyList;
+//std::vector<CharacterFriendly*> vFriendlyList;
+
+CharacterEnemy enemyMake(EnemyType type, CharacterCreator *creator)
+{
+    CharacterEnemy Test = creator->createEnemyNPC(type);
+    vEnemyList.push_back(&Test);
+    return Test;
+}
+
 std::string translateGender( Gender g )
 {
     std::string s;
@@ -117,21 +127,26 @@ int main()
     std::cout<< "\n" <<std::endl;
 
     //make three npc's
-    CharacterEnemy Test1 = creator.createEnemyNPC(Apologist);
-    CharacterEnemy Test2 = creator.createEnemyNPC(SJW);
-    CharacterEnemy Test3 = creator.createEnemyNPC(Radical);
-    evil.vListNPCs.push_back(&Test1);
-    evil.vListNPCs.push_back(&Test2);
-    evil.vListNPCs.push_back(&Test3);
-    std::cout << "1:";
-    displayEnemy(&Test1);
-    std::cout << "2:";
-    displayEnemy(&Test2);
-    std::cout << "3:";
-    displayEnemy(&Test3);
+    CharacterEnemy Test1 = enemyMake(Apologist, &creator);
+    CharacterEnemy Test2 = enemyMake(SJW, &creator);
+    CharacterEnemy Test3 = enemyMake(Radical, &creator);
+
+    for(int i=0; i<3; i++)
+    {
+        std::cout<< vEnemyList[i]->getName() << std::endl;
+    }
+    std::cout << "\n";
+    evil.vListNPCs = vEnemyList;    //sync enemy list
 
     //subject them to stuff
     evil.bullet(&Test1);
+
+//    std::cout << "1:";
+//    displayEnemy(&Test1);
+//    std::cout << "2:";
+//    displayEnemy(&Test2);
+//    std::cout << "3:";
+//    displayEnemy(&Test3);
 
     return 0; //a.exec();
 }

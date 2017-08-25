@@ -26,12 +26,6 @@ public:
     int getMentalLevel();
     std::string getName();
     BreastSize getBreastSize();
-
-    //setters
-    void equipItem(EquipmentType item, std::string itemDescrip);
-    void setBreastSize( BreastSize b );
-
-    //inline methods
     ///
     /// \brief getGender
     /// \return gender
@@ -41,6 +35,10 @@ public:
         return this->genderAssigned;
     }
 
+
+    //setters
+    void equipItem(EquipmentType item, std::string itemDescrip);
+    void setBreastSize( BreastSize b );
     ///
     /// \brief assignGender
     /// \param g
