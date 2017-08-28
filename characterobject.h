@@ -36,7 +36,6 @@ private:
     int armourRating;
     int damageRating;
     std::string characterName;
-
 };
 
 #endif // CHARACTEROBJECT_H
