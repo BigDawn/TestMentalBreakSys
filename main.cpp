@@ -1,9 +1,118 @@
 #include <iostream>
 
 #include "charactercreator.h"
-#include "characterobject.h"
-#include "mentalsystem.h"
-#include "testsubjector.h"
+#include "testsubjectorTemplate.h"
+
+std::vector<CharacterEnemy*> vEnemyList;
+//std::vector<CharacterFriendly*> vFriendlyList;
+
+CharacterEnemy enemyMake(EnemyType type, CharacterCreator *creator)
+{
+    CharacterEnemy Test = creator->createEnemyNPC(type);
+    vEnemyList.push_back(&Test);
+    return Test;
+}
+
+std::string translateGender( Gender g )
+{
+    std::string s;
+    switch(g)
+    {
+    case Male:
+        s = "Male";
+        break;
+    case Female:
+        s = "Female";
+        break;
+    case IsASocialConstruct:
+        s = "Fluid";
+        break;
+    default:
+        s = "Error";
+        break;
+    }
+
+    return s;
+}
+
+std::string translateBreastSize( BreastSize b )
+{
+    std::string s;
+
+    switch(b)
+    {
+    case man:
+        s = "man";
+        break;
+
+    case AA:
+        s = "AA";
+
+        break;
+
+    case A:
+        s = "A";
+        break;
+
+    case B:
+        s = "B";
+        break;
+
+    case C:
+        s = "C";
+        break;
+
+    case D:
+        s = "D";
+        break;
+
+    case DD:
+        s = "DD";
+        break;
+
+    case E:
+        s = "E";
+        break;
+
+    case EE:
+        s = "EE";
+        break;
+
+    }
+    return s;
+}
+
+std::string translateEnemy( EnemyType e )
+{
+    std::string s;
+
+    switch(e)
+    {
+    case Apologist:
+        s = "Apologist";
+        break;
+
+    case Radical:
+        s = "Radical";
+        break;
+
+    case SJW:
+        s = "SJW";
+        break;
+    }
+
+    return s;
+}
+
+void displayEnemy(CharacterEnemy *chara)
+{
+    std::cout << "\nName: "<< chara->getName()
+              << "\nGender: " << translateGender(chara->getGender())
+              << "\nEnemy Type: " << translateEnemy( chara->getTypeOfEnemy() )
+              << "\nMental-Strength: " << chara->getMentalLevel()
+              << "\nBreast Size: " << translateBreastSize( chara->getBreastSize() )
+              << "\n" <<std::endl;
+}
 
 ///
 /// \brief main
@@ -14,33 +123,31 @@ int main()
 {
     //initialise Mental System and Character Creator
     CharacterCreator creator;
-    MentalSystem mentalSys;
-    testSubjector evil;
+    testSubjector<CharacterEnemy> evil;
     std::cout<< "\n" <<std::endl;
 
     //make three npc's
-    CharacterObject Test1 = creator.createNPC();
-    CharacterObject Test2 = creator.createNPC();
-    CharacterObject Test3 = creator.createNPC();
-    std::cout << "1:\nName: "<< Test1.getName() << "\nEnemy Type: " << Test1.getTypeOfEnemy() << "\nMental-Strength: " << Test1.getMentalLevel() << "\n" << std::endl;
-    std::cout << "2:\nName: "<< Test2.getName() << "\nEnemy Type: " << Test2.getTypeOfEnemy() << "\nMental-Strength: " << Test2.getMentalLevel() << "\n" << std::endl;
-    std::cout << "3:\nName: "<< Test3.getName() << "\nEnemy Type: " << Test3.getTypeOfEnemy() << "\nMental-Strength: " << Test3.getMentalLevel() << "\n" << std::endl;
+    CharacterEnemy Test1 = enemyMake(Apologist, &creator);
+    CharacterEnemy Test2 = enemyMake(SJW, &creator);
+    CharacterEnemy Test3 = enemyMake(Radical, &creator);
+
+    for(int i=0; i<3; i++)
+    {
+        std::cout<< vEnemyList[i]->getName() << std::endl;
+    }
+    std::cout << "\n";
+    evil.vListNPCs = vEnemyList;    //sync enemy list
 
     //subject them to stuff
-    evil.bullet(&Test2);
-    std::cout<< Test2.health <<std::endl;
+    evil.bullet(&Test1);
 
-    if(Test2.health<0)
-    {
-        std::cout<< Test2.getName() << " died!" <<std::endl;
-        mentalSys.friendlyDied(Test2,Test1);
-    }
+//    std::cout << "1:";
+//    displayEnemy(&Test1);
+//    std::cout << "2:";
+//    displayEnemy(&Test2);
+//    std::cout << "3:";
+//    displayEnemy(&Test3);
 
-//    int i = 0;
-//    while( i<3 )
-//    {
-//        cout <<
-//    }
     return 0; //a.exec();
 }
 

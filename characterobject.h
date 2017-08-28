@@ -3,14 +3,9 @@
 
 #include <string>
 #include <iostream>
-#include <array>
+#include <unordered_map>
 
-enum EnemyType
-{
-    Feminista,
-    SJW,
-    Apologist
-};
+#include "globalenums.h"
 
 ///
 /// \class CharacterObject
@@ -19,23 +14,72 @@ enum EnemyType
 ///
 class CharacterObject
 {
+
 public:
     //variables
-
+    bool isDead;
+    int currentHealth;
     //methods
     CharacterObject(int iniMentalStrength, std::string Name);
-    EnemyType getTypeOfEnemy();
+
+    //getters
     int getMentalLevel();
-    int health;
     std::string getName();
+    BreastSize getBreastSize();
+    ///
+    /// \brief getGender
+    /// \return gender
+    /// \details Returns gender, used a lot so is inline
+    inline Gender getGender()
+    {
+        return this->genderAssigned;
+    }
+
+
+    //setters
+    void equipItem(EquipmentType item, std::string itemDescrip);
+    void setBreastSize( BreastSize b );
+    ///
+    /// \brief assignGender
+    /// \param g
+    /// \details Changes Gender to gender type 'g'
+    inline void assignGender( Gender g )
+    {
+        this->genderAssigned = g;
+    }
 
 private:
-    //variables
-    EnemyType typeOfEnemy;
-    int mentalStrength;
+    //Character Description
+    std::string characterName;
+    BreastSize breastSize;
+    Gender genderAssigned;
+
+    //Character Stats
     int armourRating;
     int damageRating;
-    std::string characterName;
+    int maxHealth = 100;
+    int mentalStrength;
+
+    //Equipment
+    std::unordered_map<int, std::string> equipment;
+
+    //methods
+    void defaultEquipment()
+    {
+        equipment.insert( { Headgear, "Nothing" } );
+        equipment.insert( { Eyewear, "Nothing" } );
+        equipment.insert( { NeckAccessory, "Nothing" } );
+        equipment.insert( { Top, "Nothing" } );
+        equipment.insert( { Bottoms, "Nothing" } );
+        equipment.insert( { Footwear, "Nothing" });
+        equipment.insert( { Weapon, "Nothing" });
+    }
+
+    void setInitialHealth()
+    {
+        this->currentHealth = this->maxHealth;
+    }
+
 };
 
 #endif // CHARACTEROBJECT_H

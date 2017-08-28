@@ -3,8 +3,11 @@
 
 #include <string>
 #include <iostream>
+#include <vector>
 
-#include "characterobject.h"
+#include "characterenemy.h"
+#include "globalenums.h"
+#include "mentalsystemenemy.h"
 
 ///
 /// \class MentalSystem
@@ -14,9 +17,18 @@
 class MentalSystem
 {
 public:
+    //variabes
+
+    //methods
     MentalSystem();
-    std::string killEnemy(CharacterObject npc);
-    void friendlyDied(CharacterObject npcDead, CharacterObject npcAffected);
+    void controllerMental(CharacterEnemy npcActedUpon, TypeOfAction typeActEnum, std::vector<CharacterEnemy*> listChars);
+    //void controllerMental(CharacterFriendly npcActedUpon, TypeOfAction typeActEnum);
+
+private:
+
+    //variables
+    MentalSystemEnemy mentalEnemy;
+
 };
 
 #endif // MENTALSYSTEM_H

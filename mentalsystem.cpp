@@ -6,29 +6,13 @@ MentalSystem::MentalSystem()
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-/// \brief MentalSystem::friendlyDied
-/// \param npc
-/// \return
-/// \details
-void MentalSystem::friendlyDied(CharacterObject npcDead, CharacterObject npcAffected)
+/// \brief MentalSystem::controllerMental
+/// \param npcActedUpon
+/// \param typeActEnum
+/// \details sends enemy to its mental system
+void MentalSystem::controllerMental(CharacterEnemy npcActedUpon, TypeOfAction typeActEnum, std::vector<CharacterEnemy*> listChars)
 {
-    if(npcDead.getTypeOfEnemy() == EnemyType::Feminista)
-    {
-        std::cout<< npcAffected.getName() << " runs over to " << npcDead.getName() << " and tries desperately to revive her" <<std::endl;
-    }
-    else
-    {
-        std::cout<< npcAffected.getName() << " runs over to " << npcDead.getName() << " and tries desperately to revive them" <<std::endl;
-    }
-}
-
-////////////////////////////////////////////////////////////////////////////////////////////////////
-/// \brief MentalSystem::killEnemy
-/// \param npc
-/// \return
-/// \details
-std::string MentalSystem::killEnemy(CharacterObject npc)
-{
-
+    mentalEnemy.setRefreshNpcList(listChars);
+    mentalEnemy.sortReactionFromAction(npcActedUpon, typeActEnum);
 }
 

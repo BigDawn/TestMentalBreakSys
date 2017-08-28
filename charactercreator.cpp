@@ -11,17 +11,64 @@ CharacterCreator::CharacterCreator()
         return;
     }
 
-    std::cout<< "NPC Creator online!";
+    std::cout<< "NPC Creator online!" <<std::endl;
+}
+
+CharacterCreator::~CharacterCreator()
+{
+    std::cout<< "NPC Creator offline!" <<std::endl;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 /// \brief CharacterCreator::createNPC
 /// \return a newly generated npc
 /// \details Creates a new NPC, passing random values into the character
-CharacterObject CharacterCreator::createNPC()
+CharacterEnemy CharacterCreator::createEnemyNPC(EnemyType type)
 {
-    std::string nameOfNPC = chooseRandomName(false) + " " + chooseRandomName(true);
-    CharacterObject newNpc(mentalStrengthGenerator(), nameOfNPC);
+    std::string nameOfNPC = chooseRandomName(&possibleFirstNames) + " " + chooseRandomName(&possibleSurnames);
+    CharacterEnemy newNpc(mentalStrengthGenerator(), nameOfNPC, type);
+
+    //Gender
+    switch (newNpc.getTypeOfEnemy())
+    {
+    case Apologist:
+        newNpc.assignGender(Female);
+        break;
+
+    case Radical:
+        newNpc.assignGender(Female);
+        break;
+
+    case SJW:
+        newNpc.assignGender(Male);
+        break;
+
+    default:
+        newNpc.assignGender(IsASocialConstruct);
+        break;
+    }
+
+    //Breast Size
+    switch(newNpc.getGender())
+    {
+    case Male:
+        newNpc.setBreastSize( man );
+        break;
+
+    case Female:
+        newNpc.setBreastSize( DD );
+        break;
+
+    case IsASocialConstruct:
+        newNpc.setBreastSize(AA);
+        break;
+
+    default:
+        newNpc.setBreastSize(C);
+        break;
+    }
+
+    initialEquipment(&newNpc);
     return newNpc;
 }
 
@@ -42,6 +89,8 @@ int CharacterCreator::mentalStrengthGenerator()
 /// \details Populates the list of available names, which is a private variable
 bool CharacterCreator::populateNamesArray()
 {
+    bool isfirstStreamOK = false;
+    bool isSecondStreamOK = false;
     //initialise and open first and second input streams
     std::ifstream firstNameStream;
     std::ifstream secondNameStream;
@@ -53,25 +102,32 @@ bool CharacterCreator::populateNamesArray()
    secondNameStream.open("/home/sexybeast/MySoftware/TestMentalBreakSys/Names/secondNames.txt", std::ifstream::in);
 
     //check if streams opened
-    if( !firstNameStream.is_open() )
+    if( !firstNameStream.is_open() )    //check for forename filestream
     {
-        std::cout<< "First Names File not opened!" <<std::endl;
+        isfirstStreamOK = false;
+        std::cout<< "Character Creator: First Names File not opened!" <<std::endl;
         possibleFirstNames.push_back("Couldn't connect");
     }
     else
     {
-        std::cout<< "First Names File opened!" <<std::endl;
+        isfirstStreamOK = true;
+        std::cout<< "Character Creator: First Names File opened!" <<std::endl;
     }
 
-    if( !secondNameStream.is_open() )
+    if( !secondNameStream.is_open() )   //check for surname filestream
     {
-        std::cout<< "Second Names File not opened!" <<std::endl;
+        isSecondStreamOK = false;
+        std::cout<< "Character Creator: Second Names File not opened!" <<std::endl;
         possibleSurnames.push_back("Couldn't connect");
-        return false;
     }
     else
     {
-        std::cout<< "Second Names File opened!" <<std::endl;
+        isSecondStreamOK = true;
+        std::cout<< "Character Creator: Second Names File opened!" <<std::endl;
+    }
+    if( !isfirstStreamOK || !isSecondStreamOK ) //check if program can continue
+    {
+        return false;
     }
 
     //populate vectors
@@ -92,18 +148,10 @@ bool CharacterCreator::populateNamesArray()
 /// \brief CharacterCreator::chooseRandomFirstName
 /// \return NPC first name
 /// \details chooses a random name from the First name vector and returns it
-std::string CharacterCreator::chooseRandomName(bool surname)
+std::string CharacterCreator::chooseRandomName(std::vector<std::string> *nameVectorNeeded)
 {
-    std::vector<std::string> namesVector;
+    std::vector<std::string> namesVector = *nameVectorNeeded;
 
-    if(surname)
-    {
-        namesVector = possibleSurnames;
-    }
-    else
-    {
-        namesVector = possibleFirstNames;
-    }
     //set range using vector size
     distribution = std::uniform_int_distribution<int> (1,namesVector.size());
 
