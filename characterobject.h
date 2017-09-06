@@ -19,21 +19,22 @@ public:
     //variables
     bool isDead;
     int currentHealth;
+    std::unordered_map<int, std::string> equipment; //Equipment
+
     //methods
     CharacterObject(int iniMentalStrength, std::string Name);
-
-    //getters
-    int getMentalLevel();
-    std::string getName();
-    BreastSize getBreastSize();
-    ///
-    /// \brief getGender
-    /// \return gender
-    /// \details Returns gender, used a lot so is inline
-    inline Gender getGender()
-    {
-        return this->genderAssigned;
-    }
+        // //getters
+        int getMentalLevel();
+        std::string getName();
+        BreastSize getBreastSize();
+        ///
+        /// \brief getGender
+        /// \return gender
+        /// \details Returns gender, used a lot so is inline
+        inline Gender getGender()
+        {
+            return this->genderAssigned;
+        }
 
 
     //setters
@@ -59,9 +60,6 @@ private:
     int damageRating;
     int maxHealth = 100;
     int mentalStrength;
-
-    //Equipment
-    std::unordered_map<int, std::string> equipment;
 
     //methods
     void defaultEquipment()
