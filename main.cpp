@@ -2,6 +2,7 @@
 
 #include "charactercreator.h"
 #include "testsubjectorTemplate.h"
+#include "mentalsystem.h"
 
 std::vector<CharacterEnemy*> vEnemyList;
 //std::vector<CharacterFriendly*> vFriendlyList;
@@ -114,6 +115,16 @@ void displayEnemy(CharacterEnemy *chara)
               << "\n" <<std::endl;
 }
 
+void bulletHitEnemy(CharacterEnemy *c, testSubjector<CharacterEnemy> *ts, MentalSystem *m)
+{
+  std::cout << "bullet hits enemy" << '\n';
+  TypeOfAction tempAct;
+  std::vector<CharacterEnemy> vEnemyList;
+  ts.bullet(&c, &tempAct, *vEnemyList);
+  m.controllerMental(c, tempAct, vEnemyList);
+}
+
+
 ///
 /// \brief main
 /// \return 0
@@ -124,6 +135,7 @@ int main()
     //initialise Mental System and Character Creator
     CharacterCreator creator;
     testSubjector<CharacterEnemy> evil;
+    MentalSystem mentalSys;
     std::cout<< "\n" <<std::endl;
 
     //make three npc's
@@ -139,7 +151,7 @@ int main()
     evil.vListNPCs = vEnemyList;    //sync enemy list
 
     //subject them to stuff
-    evil.bullet(&Test1);
+    bulletHitEnemy(&Test1, &evil, &m);
 
 //    std::cout << "1:";
 //    displayEnemy(&Test1);
@@ -150,4 +162,3 @@ int main()
 
     return 0; //a.exec();
 }
-

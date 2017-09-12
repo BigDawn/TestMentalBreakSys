@@ -17,7 +17,7 @@
 /// Will not be in the main program.
 template <class tNpc> class testSubjector
 {
-public: 
+public:
   testSubjector()
     {std::cout<< "Subjector Online" <<std::endl;}
   void bullet(tNpc *character);
@@ -30,7 +30,7 @@ private:
   MentalSystem mentalSys;
 
   //methods
-  void damageCalculationBullet(tNpc *character);
+  void damageCalculationBullet(tNpc *character, TypeOfAction *actionType, std::vector<tNpc*> *list);
   void mentalSystemAction(tNpc character, TypeOfAction typeAct);
 };
 
@@ -39,7 +39,7 @@ private:
 /// \tparam Type of NPC to be subjected
 /// \param character
 /// \details Simulates a bullet hitting an enemy
-template <class tNpc> void testSubjector<tNpc>::bullet(tNpc *character)
+template <class tNpc> void testSubjector<tNpc>::bullet(tNpc *character, TypeOfAction *actionType, std::vector<tNpc*> *list)
 {
     damageCalculationBullet(character);
     std::cout<< "Enemy Health: " << character->currentHealth <<std::endl;
@@ -49,12 +49,15 @@ template <class tNpc> void testSubjector<tNpc>::bullet(tNpc *character)
     {
         character->isDead = true;
         std::cout<< character->getName() << " died!" <<std::endl;
-        mentalSystemAction(*character, friendlyDied);
+        actionType = friendlyDied;
+        //mentalSystemAction(*character, friendlyDied);
     }
     else
     {
-        mentalSystemAction(*character, injuredByBullet);
+        //mentalSystemAction(*character, injuredByBullet);
+        actionType = injuredByBullet;
     }
+    list = this->vListNPCs;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
