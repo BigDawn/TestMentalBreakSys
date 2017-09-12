@@ -6,7 +6,9 @@ CharacterObject::CharacterObject(int iniMentalStrength, std::string Name)
     this->mentalStrength = iniMentalStrength;
     this->characterName = Name;
     this->genderAssigned = IsASocialConstruct; //default
+    this->setBreastSize(BreastSize::C); //default
     setInitialHealth();
+    equipment.rehash(14);    //7 items so 14 buckets to keep load factor under 0.5
     defaultEquipment();
 }
 
